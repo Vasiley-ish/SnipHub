@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg">
+    <title>Snip HUB</title>
+  
+    <script defer src="./js/vue.js"></script>
+    <script defer src="./js/script.js"></script>
+</head>
+
+<body class="body">
+
+    <div id="header" class="somthing">
+        <header class="header" :class="{header_visible:visible}">
+            <a href="#" class="logo logo__header">
+                <img class="logo__header" src="./images/logo.png" alt="Snip HUB">
+            </a>
+            <nav class="navigation header__navigation">
+                <a href="#" class="navigation__link link">Главная</a>
+                <a href="#" class="navigation__link link">О нас</a>
+                <a href="#" class="navigation__link link">Наши работы</a>
+                <a href="#" class="navigation__link link">Цены</a>
+                <a href="#" class="navigation__link link">Услуги</a>
+            </nav>
+            <nav class="navigation user">
+                <a href="#" class="navigation__link link">Войти</a>
+                <p class="navigation__link link user__devider">|</p>
+                <a href="#" class="navigation__link link">Зарегистрироваться</a>
+            </nav>
+        </header>
+        <button @click="toggleHeader(visible)" :class="{burger_translate: visible}" class="burger header__burger" id="showHeader">
+            <!-- v-bind:class это то же, что и :class -->
+            <div :class="{burgerbar_top: visible}" class="burger-bar" id="burger-top"></div>
+            <div :class="{burgerbar_middle: visible}" class="burger-bar" id="burger-middle"></div>
+            <div :class="{burgerbar_bottom: visible}" class="burger-bar" id="burger-bottom"></div>
+        </button>
+    </div>
+
+    <main class="content">
+     
+        <div id="messageForm" >
+            <button @click="toggleForm(formVisible)" :class="{dropdownForm__clicked:formVisible}" class="button button--dropdown-form">+ Новая заявка</button>
+
+            <form  :class="{form__clicked:formVisible}" class="form form--message" action="POST" class="form-message">
+                <div class="form__item">
+                    <label class="label" for="category">Название услуги</label>
+                    <select class="input input--message" name="category" id="category">
+                        <option value="dab">пошив</option>
+                        <option value="dab">пошив2</option>
+                        <option value="dab">пошив3</option>
+                        <option value="dab">пошив4</option>
+                    </select>
+                </div>
+                <div class="form__item">
+                    <label class="label" for="contact">Контакт</label>
+                    <select class="input input--message" name="contact" id="contact">
+                        <option value="u-call">Вы нам позвоните</option>
+                        <option value="u-come">Вы прийдете к нам в офис</option>
+                        <option value="we-call">Мы Вам позвоним</option>
+                    </select>
+                </div>
+                <div class="form__item">
+                    <label class="label" for="comment">Дополнительные пожелания
+                        или комментарий</label>
+                    <textarea class="input input--message" name="comment" id="comment" cols="40" rows="5" placeholder="Дополнительный комментарий"></textarea>
+                </div>
+                <button class="button">Отправить</button>
+            </form>
+        </div>
+
+        <h1 class="title title--main">Ваши заявки</h1>
+
+        <div class="card card--message">
+            <p class="title subtitle">Название услуги</p>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias corporis saepe deserunt provident quia error!</p>
+
+            <p class="text text--fancy">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <button class="button button--danger message__button">Отменить заявку</button>
+        </div>
+        
+      
+
+    </main>
+
+    <footer class="footer">
+        <img class="logo__footer" src="./images/logo.png" alt="">
+        <p class="title white title--footer">
+            Ул. Красивое, 68
+        </p>
+        <p class="title white title--footer">
+            <img class="phone-icon" src="./images/phone.png" alt="tel.">
+            8 (4444) 12-23-45
+        </p>
+    </footer>
+
+</body>
+
+</html>

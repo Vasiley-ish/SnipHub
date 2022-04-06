@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg">
     <title>Snip HUB</title>
+  
+    <script defer src="./js/vue.js"></script>
+    <script defer src="./js/script.js"></script>
 </head>
 
-<body>
+<body class="body">
 
     <div class="grid-intro">
         <div class="intro-card">
@@ -62,17 +65,16 @@
                     <img class="phone-icon" src="./images/phone.png" alt="tel.">
                     8 (4444) 12-23-45
                 </p>
-
             </div>
         </div>
     </div>
-
-        <header class="header">
-            <a href="#" class="logo">
-                <img src="./images/logo.png" alt="Snip HUB">
+    <div id="header" class="somthing">
+        <header class="header" :class="{header_visible:visible}">
+            <a href="#" class="logo logo__header">
+                <img class="logo__header" src="./images/logo.png" alt="Snip HUB">
             </a>
             <nav class="navigation header__navigation">
-                <!-- <a href="#" class="navigation__link link">Главная</a> -->
+                <a href="#" class="navigation__link link">Главная</a>
                 <a href="#" class="navigation__link link">О нас</a>
                 <a href="#" class="navigation__link link">Наши работы</a>
                 <a href="#" class="navigation__link link">Цены</a>
@@ -80,62 +82,126 @@
             </nav>
             <nav class="navigation user">
                 <a href="#" class="navigation__link link">Войти</a>
-                <p class="navigation__link link">|</p>
+                <p class="navigation__link link user__devider">|</p>
                 <a href="#" class="navigation__link link">Зарегистрироваться</a>
             </nav>
         </header>
+        <button @click="toggleHeader(visible)" :class="{burger_translate: visible}" class="burger header__burger" id="showHeader">
+            <!-- v-bind:class это то же, что и :class -->
+            <div :class="{burgerbar_top: visible}" class="burger-bar" id="burger-top"></div>
+            <div :class="{burgerbar_middle: visible}" class="burger-bar" id="burger-middle"></div>
+            <div :class="{burgerbar_bottom: visible}" class="burger-bar" id="burger-bottom"></div>
+        </button>
+    </div>
 
-        <main class="content">
-            <div class="advantages">
-                <div class="card card--advantage">
-                    <img src="./images/best-icon.png" alt="w">
-                    <p class="title subtitle">Преимущество 1</p>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-                        optio atque ameandae!</p>
-                </div>
-                <div class="card card--advantage">
-                    <img src="./images/best-icon.png" alt="w">
-                    <p class="title subtitle">Преимущество 2</p>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-                        optio atque ameandae!</p>
-                </div>
-                <div class="card card--advantage">
-                    <img src="./images/best-icon.png" alt="w">
-                    <p class="title subtitle ">Преимущество 3</p>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-                        optio atque ameandae!</p>
+    <main class="content">
+        <div class="advantages">
+            <div class="card card--advantage">
+                <img src="./images/best-icon.png" alt="w">
+                <p class="title subtitle">Преимущество 1</p>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+                    optio atque ameandae!</p>
+            </div>
+            <div class="card card--advantage">
+                <img src="./images/best-icon.png" alt="w">
+                <p class="title subtitle">Преимущество 2</p>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+                    optio atque ameandae!</p>
+            </div>
+            <div class="card card--advantage">
+                <img src="./images/best-icon.png" alt="w">
+                <p class="title subtitle ">Преимущество 3</p>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+                    optio atque ameandae!</p>
+            </div>
+        </div>
+
+        <h1 class="title title--main">Наши услуги</h1>
+
+        <div class="servises">
+            <div class="servise servise--long">
+                <p class="title title__servise subtitle white-bg  rounded">Пошив одежды</p>
+                <div class="servese--cards">
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/12.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/13.jpg" alt="ds">
+                        <p class="text--centered">Пошив сценической одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/11.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/11.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/11.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/9.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
                 </div>
             </div>
 
-            <h1 class="title title--main">Наши услуги</h1>
-
-            <div class="servises">
-                <div class="servise servise--long">
-                    <p class="title title__servise subtitle white-bg ">Пошив одежды</p>
-                </div>
-
-                <div class="servise">
-                    <p class="title title__servise subtitle white-bg ">Раскройка ткани</p>
-                </div>
-
-                <div class="servise">
-                    <p class="title title__servise subtitle white-bg ">Пошив текстильного интерьера</p>
-                </div>
-
-                <div class="servise servise--long">
-                    <p class="title title__servise subtitle white-bg ">Ремонт одежды</p>
-                </div>
+            <div class="servise" style="background-image: url(./images/rackroika.jpg);">
+                <p class="title title__servise subtitle white-bg  rounded">Раскройка ткани</p>
             </div>
 
-            <div class="call-to-action">
-                <p class="title white">Оформите заказ и мы с вами свяжемся!</p>
-                <p class="text white text--block">Snip HUB готов проконсультировать своих клиентов и выполнить заказ любой сложность от пошива и ремонта одежды до изготовления чехлов и постельного белья</p>
-                <a class="button" href=""#>Оформить заказ</a>
+            <div class="servise" style="background-image: url(./images/1-tekstilnaya-produktsiya.jpg);">
+                <p class="title title__servise subtitle white-bg  rounded" >Пошив текстильного интерьера</p>
             </div>
 
-            <h1 class="title title--main">Цены</h1>
+            <div class="servise servise--long">
+                <p class="title title__servise subtitle white-bg  rounded">Ремонт одежды</p>
+                <div class="servese--cards">
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/12.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/13.jpg" alt="ds">
+                        <p class="text--centered">Пошив сценической одежды</p>
+                    </div>
+                    <div class="card servese--card">
+                        <img class="card__image" src="./images/11.jpg" alt="ds">
+                        <p class="text--centered">Индивидуальный пошив одежды</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </main>
+        <div class="call-to-action">
+            <p class="title white">Оформите заказ и мы с вами свяжемся!</p>
+            <p class="text white text--block">Snip HUB готов проконсультировать своих клиентов и выполнить заказ любой
+                сложность от пошива и ремонта одежды до изготовления чехлов и постельного белья</p>
+            <a class="button" href="" #>Оформить заказ</a>
+        </div>
+
+        <h1 class="title title--main">Каталог</h1>
+        <span class="title main--subtitle">Нажмите на ссылку и просматривайте наши цены</span>
+
+        <ul class="list list--first">
+            <li class="list__item "><a class="link--list link" href="#">Пошив одежды</a></li>
+            <li class="list__item "><a class="link--list link" href="#">Ремонт одежды</a></li>
+                <ul class="list list--second">
+                    <li class="list__item "><a class="link--list link link--list__second" href="#">Замена молнии</a></li>
+                    <li class="list__item "><a class="link--list link link--list__second" href="#">Ремонт карманов</a></li>
+                    <li class="list__item "><a class="link--list link link--list__second" href="#">Ремонт рукавов</a></li>
+                </ul>
+            <li class="list__item "><a class="link--list link" href="#">Текстильные изделия</a></li>
+            <ul class="list list--second">
+                <li class="list__item "><a class="link--list link link--list__second" href="#">Чехлы</a></li>
+                <li class="list__item "><a class="link--list link link--list__second" href="#">Постельное белье</a></li>
+            </ul>
+        </ul>
+    
+    </main>
 
     <footer class="footer">
         <img class="logo__footer" src="./images/logo.png" alt="">
