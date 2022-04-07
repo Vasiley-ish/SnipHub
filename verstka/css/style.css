@@ -3,6 +3,7 @@
 
 html{
     font-size: 8px;
+    scroll-behavior: smooth;
 }
 
 @media(min-width:920px){
@@ -18,6 +19,21 @@ html{
     --color-gay-blue:#5BCFFA;
     --color-gay-pink:#F2A7B6;
   }
+/* input color */
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--color-dark-red);
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: var(--color-dark-red);
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: var(--color-dark-red);
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: var(--color-dark-red);
+  }
+
+
 
 .body{
     display: flex;
@@ -60,15 +76,18 @@ img{
 
 .navigation{
     display: flex;
+    align-items: center;
 }
 
 .navigation__link{
     margin-inline: 1vw;
+    min-width: 6ch;
 }
 
 .link{
+    height: fit-content;
     text-decoration: none;
-
+    padding-block: 3px;
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
@@ -80,12 +99,31 @@ img{
 
     color: var(--main-bg-color);
 
+    background-image: linear-gradient(90deg, rgba(0,0,0,0),currentColor,currentColor,  rgba(0,0,0,0));
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    transition: .15s ease-out;
 }
 
 .link:hover{
-    text-decoration: underline ;
+    background-size: 100% 2px;
 }
 
+.user{
+    display: flex;
+    align-items: center;
+}
+
+.user > :first-child::after{
+    content: '|';
+    margin-inline: 1ch;
+}
+
+.user > *{
+    margin-inline: 0;
+}
 
 .logo{
     margin-inline: auto;
@@ -117,6 +155,8 @@ img{
     
     color: var(--color-dark-red);
     margin: 0;
+
+    z-index: -1;
 }
 
 @media(max-width:560px){
@@ -162,6 +202,7 @@ img{
 .title--intro{
     margin-top: 0;
     margin-bottom: 0;
+    z-index: 5;
 }
 
 .subtitle{
@@ -351,7 +392,7 @@ img{
 }
 
 .content{
-    width: 80%;
+    min-width: 80%;
     max-width: 1200px;
     margin-inline: auto;
     margin-bottom: 185px;
@@ -441,14 +482,14 @@ img{
     border-right: 1px solid var(--color-gay-blue);
     flex-grow: 1;
     flex-shrink: 2;
-    flex-basis: 400px;
+    flex-basis: 480px;
 }
 
 .servise--long{
     flex-grow: 2;
     flex-shrink: 1;
     border-color: var(--color-gay-pink);
-    flex-basis: 600px;
+    flex-basis: 640px;
 }
 
 .title__servise{
@@ -588,6 +629,13 @@ button{
     max-width: 240px;
 }
 
+.input{
+    padding-inline: .5em;
+    padding-block: 3px;
+
+    border-color: var(--color-gay-blue);
+}
+
 .input--message{
     width: 100%;
     max-width: 240px;
@@ -632,6 +680,7 @@ button{
     height: 1em;
     position: absolute;
     transform: translateX(-16px);
+    z-index: -1;
 }
 
 .list--second{
@@ -646,6 +695,7 @@ button{
     height: 0.8em;
     position: absolute;
     transform: translate(-20px, 0.2em);
+    z-index: -1;
 }
 
 .link--list{
@@ -701,10 +751,6 @@ button{
     .navigation .link{
         font-size: 4vh;
         line-height: 140%;
-    }
-
-    .user__devider{
-        display: none;
     }
 
     .burger{
@@ -781,9 +827,100 @@ button{
         opacity: 1;
         visibility: visible;
     }
+
+    .user > :first-child::after{
+        content: '';
+        margin-inline: 0;
+    }
 }
 
+.table{
+    display: grid;
+    gap: .2em;
+    margin-top: 1.2em;
+}
 
+.priceSection{
+    margin-bottom: 72px;
+}
+
+.threeCols{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.fourCols{
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.fiveCols{
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.sixCols{
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.sevenCols{
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.eightCols{
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.nineCols{
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.tenCols{
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.tableItem{
+    background-color: #fff;
+    padding: .5em;
+    font-size: calc(6px + 0.6vw);
+    border-radius: 4px;
+
+    display: grid;
+    place-items: center;
+    text-align: center;
+
+    text-transform: capitalize;
+}
+
+.tableTopCorner{
+    font-weight: 600;
+    border: var(--color-bright-red) solid 2px;
+}
+
+.tableTop{
+    font-weight: 600;
+    border-block: var(--color-bright-red) solid 2px;
+}
+
+.tableSide{
+    font-weight: 500;
+    color: var(--color-dark-red);
+    border-inline: var(--color-bright-red) solid 2px;
+}
+
+.tableOddRow{
+    border-block: var(--color-gay-pink) solid 2px;
+}
+
+.tableEvenRow{
+    border-block: var(--color-gay-blue) solid 2px;
+}
+
+.tapleItem{
+    text-align: center;
+}
+
+.taplePrise{
+    color: var(--color-dark-red);
+    font-weight: 300;
+}
 
 .somthing{
   position: sticky;
@@ -791,3 +928,14 @@ button{
   width: 100vw;
 }
 
+.pad-lr{
+    padding-inline: 1em;
+}
+
+.mr-lr{
+    margin-inline: auto;
+}
+
+.index{
+    z-index: 5;
+}

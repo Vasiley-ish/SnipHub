@@ -38,7 +38,7 @@
             </nav>
         </header>
         <button @click="toggleHeader(visible)" :class="{burger_translate: visible}" class="burger header__burger" id="showHeader">
-            <!-- :class это то же, что и v-bind:class -->
+            <!-- v-bind:class это то же, что и :class -->
             <div :class="{burgerbar_top: visible}" class="burger-bar" id="burger-top"></div>
             <div :class="{burgerbar_middle: visible}" class="burger-bar" id="burger-middle"></div>
             <div :class="{burgerbar_bottom: visible}" class="burger-bar" id="burger-bottom"></div>
@@ -63,9 +63,9 @@
                 <div class="form__item">
                     <label class="label" for="contact">Контакт</label>
                     <select class="input input--message" name="contact" id="contact">
-                        <option value="u-call">Вы нам позвоните</option>
-                        <option value="u-come">Вы прийдете к нам в офис</option>
-                        <option value="we-call">Мы Вам позвоним</option>
+                        <option value="u-call">Я позвоню вам</option>
+                        <option value="u-come">Я приду к вам в офис</option>
+                        <option value="we-call">Позвоните мне</option>
                     </select>
                 </div>
                 <div class="form__item">
@@ -77,9 +77,9 @@
             </form>
         </div>
 
-        <h1 class="title title--main">Ваши заявки</h1>
+        <h1 class="title title--main">Новые заявки</h1>
 
-        <div class="card card--message mr-lr">
+        <div class="card card--message">
             <p class="title subtitle">Название услуги</p>
             <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias corporis saepe deserunt provident quia error!</p>
 
@@ -92,7 +92,7 @@
     </main>
 
     <footer class="footer">
-        <img class="logo__footer" src="./images/logo.png" alt="a">
+        <img class="logo__footer" src="./images/logo.png" alt="">
         <p class="title white title--footer">
             Ул. Красивое, 68
         </p>
