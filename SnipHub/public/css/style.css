@@ -442,7 +442,7 @@ img{
 
 .card--advantage{
     padding: 60px 3%;
-    flex-basis:1 1 350px;
+    flex:1 1 350px;
     border-radius: 8px;
     border-bottom: var(--color-gay-blue) solid 4px;
 }

@@ -76,7 +76,7 @@
 
                         <form method="post" action="{{route('delete', $message->id)}}">
                             @csrf
-                        <button action="submit" class="button button--danger message__button">Отменить заявку</button>
+                        <button action="submit" class="button button--danger message__button show_confirm">Отменить заявку</button>
                         </form>
         
     </div>
@@ -84,8 +84,8 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-<script type="text/javascript">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script defer type="text/javascript">
  
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
