@@ -8,8 +8,6 @@
 <label for="newCategory">Добавить новую категорию</label>
 <input  class="input input--category" type="text" name="newCategory" id="newCategory" placeholder="Новая категория услуги">
 
-<label for="categoryId">c id = #</label>
-<input  class="input input--category" type="text" name="categoryId" id="categoryId" placeholder="categotyid">
 
 <button class="button button--category">Создать категорию</button>
 </form>
@@ -22,16 +20,12 @@
     <input  class="input input--subcategory" type="text" name="newSubcategory" id="newSubcategory" placeholder="Новая категория услуги">
 </div>
 
-<div>
-<label for="subcategoryId">c id = #</label>
-<input  class="input input--category" type="text" name="subcategoryId" id="subcategoryId" placeholder="subcategoryi`d">
-</div>
 
 <div>
     <label for="category input--subcategory">Для категории</label>
     <select class="input input--category" name="category" id="category">
        @foreach ($cats as $item)
-             <option value="{{$item->category_code}}">{{$item->category_name}}</option>
+             <option value="{{$item->category_name}}">{{$item->category_name}}</option>
        @endforeach
     
     </select>

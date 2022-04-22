@@ -8,7 +8,7 @@
 @include('partials/servisesList')
 
 <div class="priceSection">
-    <div class="title subtitle" id="poshiv_odezhd">Пошив одежды</div>
+    <div class="title subtitle" id="Пошив одежды">Пошив одежды</div>
     <div class="table fiveCols">
 
         <div class="tableItem tableTopCorner"> </div>
@@ -80,10 +80,10 @@
 </div>
 
 <div class="priceSection">
-    <div class="title subtitle" id="remont_odezhdi">Ремонт одежды</div>
+    <div class="title subtitle" id="Ремонт Одежды">Ремонт одежды</div>
 
     <div class="table sevenCols">
-        <div class="tableItem tableTopCorner" id="zamena_molny">Замена молнии </div>
+        <div class="tableItem tableTopCorner" id="Замена молнии">Замена молнии </div>
         <div class="tableItem tableTop">Юбка, брюки </div>
         <div class="tableItem tableTop">Платье, блузка </div>
         <div class="tableItem tableTop">Пиджак, жакет </div>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="table sevenCols">
-        <div class="tableItem tableTopCorner" id="remont_carmanov">Ремонт карманов</div>
+        <div class="tableItem tableTopCorner" id="Ремонт карманов">Ремонт карманов</div>
         <div class="tableItem tableTop">Юбка, брюки </div>
         <div class="tableItem tableTop">Платье, блузка </div>
         <div class="tableItem tableTop">Пиджак, жакет </div>
@@ -151,7 +151,7 @@
     </div>
 
     <div class="table fiveCols">
-        <div class="tableItem tableTopCorner">Ремонт рукавов</div>
+        <div class="tableItem tableTopCorner" id="Ремонт рукавов">Ремонт рукавов</div>
         <div class="tableItem tableTop">Пиджак на подкладке</div>
         <div class="tableItem tableTop">Пальто д/с </div>
         <div class="tableItem tableTop">Пальто зимнее </div>
@@ -181,10 +181,10 @@
 </div>
 
 <div class="priceSection">
-    <div class="title subtitle" id="tekstilnye_izdelia">Текстильные изделия</div>
+    <div class="title subtitle" id="Текстильные изделия">Текстильные изделия</div>
     <div class="table threeCols" id="chehly">
 
-        <div class="tableItem tableTopCorner" >Чехлы</div>
+        <div class="tableItem tableTopCorner" id="Чехлы">Чехлы</div>
         <div class="tableItem tableTop">единича измерения</div>
         <div class="tableItem tableTop">цена</div>        
 
@@ -208,7 +208,7 @@
 
     <div class="table threeCols">
 
-        <div class="tableItem tableTopCorner">Постельное белье</div>
+        <div class="tableItem tableTopCorner" id="Постельное белье">Постельное белье</div>
         <div class="tableItem tableTop">единича измерения</div>
         <div class="tableItem tableTop">цена/руб</div>        
 

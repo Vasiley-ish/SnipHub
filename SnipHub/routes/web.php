@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
         [CategorysController::class, 'createMessage']
     )->name('submitMessage');
 
-    Route::post('/dashboard/submit/{id}',
+    Route::get('/dashboard/submit/{id}',
         [CategorysController::class, 'deleteMessage']
     )->name('delete');
 

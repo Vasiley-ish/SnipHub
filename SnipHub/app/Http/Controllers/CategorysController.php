@@ -20,7 +20,6 @@ class CategorysController extends Controller
         $form = new Categorys();
 
         $form->category_name = $req->input('newCategory');
-        $form->category_code = $req->input('categoryId');
 
         $form->save();
 
@@ -33,7 +32,6 @@ class CategorysController extends Controller
         $form = new Subcategorys();
         $form->subcategory_parent = $req->input('category');
         $form->subcategory_name = $req->input('newSubcategory');
-        $form->subcategory_code = $req->input('subcategoryId');
 
         $form->save();
 

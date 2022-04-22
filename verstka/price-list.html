@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/form.css">
     <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg">
@@ -36,8 +35,7 @@
                 <a href="#" class="navigation__link link">Зарегистрироваться</a>
             </nav>
         </header>
-        <button @click="toggleHeader(visible)" :class="{burger_translate: visible}" class="burger header__burger"
-            id="showHeader">
+        <button @click="toggleHeader(visible)" :class="{burger_translate: visible}" class="burger header__burger" id="showHeader">
             <!-- v-bind:class это то же, что и :class -->
             <div :class="{burgerbar_top: visible}" class="burger-bar" id="burger-top"></div>
             <div :class="{burgerbar_middle: visible}" class="burger-bar" id="burger-middle"></div>
@@ -239,24 +237,25 @@
         </div>
 
         <div class="priceSection">
+            <div class="title subtitle">Текстильные изделия</div>
             <div class="table threeCols">
 
                 <div class="tableItem tableTopCorner">Чехлы</div>
                 <div class="tableItem tableTop">единича измерения</div>
-                <div class="tableItem tableTop">цена</div>        
+                <div class="tableItem tableTop">цена</div>
 
                 <div class="tableItem tableSide">Изготовление валика диаметром 15 х 50см</div>
                 <div class="tableItem taplePrise tableEvenRow">шт. </div>
                 <div class="tableItem taplePrise tableEvenRow">640 </div>
-        
+
                 <div class="tableItem tableSide">Чехол на валик</div>
                 <div class="tableItem taplePrise tableOddRow">шт. </div>
                 <div class="tableItem taplePrise tableOddRow">820 </div>
-  
+
                 <div class="tableItem tableSide">Чехол на стул</div>
                 <div class="tableItem taplePrise tableEvenRow">шт. </div>
                 <div class="tableItem taplePrise tableEvenRow">620 </div>
-      
+
                 <div class="tableItem tableSide">Сидушка на табурет</div>
                 <div class="tableItem taplePrise tableOddRow">шт. </div>
                 <div class="tableItem taplePrise tableOddRow">460 </div>
@@ -267,21 +266,20 @@
 
                 <div class="tableItem tableTopCorner">Постельное белье</div>
                 <div class="tableItem tableTop">единича измерения</div>
-                <div class="tableItem tableTop">цена/руб</div>        
+                <div class="tableItem tableTop">цена/руб</div>
 
                 <div class="tableItem tableSide">Изготовить наволочку 50*50, ткань хлопок </div>
                 <div class="tableItem taplePrise tableEvenRow">шт. </div>
                 <div class="tableItem taplePrise tableEvenRow">70 </div>
-        
-                <div class="tableItem tableSide">Изготовить наволочку 50*60, 
-                    50*70, ткань хлопок </div>
+
+                <div class="tableItem tableSide">Изготовить наволочку 50*60, 50*70, ткань хлопок </div>
                 <div class="tableItem taplePrise tableOddRow">шт. </div>
                 <div class="tableItem taplePrise tableOddRow">85 </div>
-  
+
                 <div class="tableItem tableSide">Сшить простынь 1,5 спальную, хлопок</div>
                 <div class="tableItem taplePrise tableEvenRow">шт. </div>
                 <div class="tableItem taplePrise tableEvenRow">120 </div>
-      
+
                 <div class="tableItem tableSide">Сшить простынь двуспальную, хлопок</div>
                 <div class="tableItem taplePrise tableOddRow">шт. </div>
                 <div class="tableItem taplePrise tableOddRow">140 </div>
@@ -289,7 +287,7 @@
                 <div class="tableItem tableSide">Сшить пододеяльник 1,5 спальную, хлопок</div>
                 <div class="tableItem taplePrise tableEvenRow">шт. </div>
                 <div class="tableItem taplePrise tableEvenRow">200 </div>
-      
+
                 <div class="tableItem tableSide">Сшить пододеяльник двуспальную, хлопок</div>
                 <div class="tableItem taplePrise tableOddRow">шт. </div>
                 <div class="tableItem taplePrise tableOddRow">250 </div>
@@ -310,8 +308,7 @@
             Ул. Красивое, 68
         </p>
         <p class="title white title--footer">
-            <img class="phone-icon" src="./images/phone.png" alt="tel.">
-            8 (4444) 12-23-45
+            <img class="phone-icon" src="./images/phone.png" alt="tel."> 8 (4444) 12-23-45
         </p>
     </footer>
 

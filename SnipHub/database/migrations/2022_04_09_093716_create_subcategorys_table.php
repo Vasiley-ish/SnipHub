@@ -17,7 +17,6 @@ class CreateSubcategorysTable extends Migration
             $table->id();
             $table->String('subcategory_parent');  
             $table->String('subcategory_name');   
-            $table->String('subcategory_code');   
             $table->timestamps();
         });
     }
