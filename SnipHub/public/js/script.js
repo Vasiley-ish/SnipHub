@@ -1,16 +1,28 @@
-// Классы ниже контролирруют переключение классов элементов, которые можно скрывать и показывать п нажатию кнопки
 var headerApp = new Vue({
     el: '#header',
     data: {
         visible: false,
     },
     methods: {
+        // Кнопка бургера главного меню
         toggleHeader: function(visible) {
-            if (visible) {
-                this.visible = false;
-            } else {
-                this.visible = true;
-            }
+            this.visible = !this.visible;
         }
     },
 })
+
+// var headerApp = new Vue({
+//     el: '#appointmentApp',
+//     data() {
+//         return {
+//             dayOfAppointment: ''
+//         }
+//     },
+//     methods: {
+
+//         getTargetID: function(clicked_id) {
+//             console.log(clicked_id);
+//             document.getElementById('apointmentDay').value = clicked_id;
+//         }
+//     },
+// })

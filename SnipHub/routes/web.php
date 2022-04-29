@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategorysController;
-use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,27 +18,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',
-    [DataController::class, 'showIndex']    
+    [CategorysController::class, 'showIndex']    
 );
 
 Route::get('/price',
-    [DataController::class, 'showPrice']
+    [CategorysController::class, 'showPrice']
 )->name('price');
 
 
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard',
-        [DataController::class, 'showDashboard']
+        [UserController::class, 'showDashboard']
     )->name('dashboard');
 
-    Route::post('/dashboard/submit',
-        [CategorysController::class, 'createMessage']
-    )->name('submitMessage');
+    Route::post('/dashboard/order-call',
+        [UserController::class, 'orderCall']
+    )->name('orderCall');
 
-    Route::get('/dashboard/submit/{id}',
-        [CategorysController::class, 'deleteMessage']
-    )->name('delete');
+    Route::post('/dashboard/make-appointment',
+    [UserController::class, 'makeAppointment']
+    )->name('makeAppointment');
+
+    Route::post('/dashboard/delete-appointment/{id}',
+        [UserController::class, 'deleteAppointment']
+    )->name('deleteAppointment');
 
 });
 
@@ -46,11 +50,11 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['role:admin']], function () {
 
     Route::get('/admin', 
-    [DataController::class, 'showAdmin']
+    [CategorysController::class, 'showAdmin']
     )->name('admin');
 
     Route::get('/admin/messages', 
-    [DataController::class, 'showAdminUserMessages']
+    [CategorysController::class, 'showAdminUserMessages']
     )->name('admin-messages');
 
     Route::post('admin/addCategory',

@@ -6,9 +6,9 @@
         </a>
         <nav class="navigation header__navigation">
             <a href="/" class="navigation__link link">Главная</a>
-            <a href="/#about" class="navigation__link link">О нас</a>
             <a href="{{route('price')}}" class="navigation__link link">Цены</a>
             <a href="/#servises" class="navigation__link link">Наши Услуги</a>
+            <!-- <a href="/#otz" class="navigation__link link">Отзывы</a> -->
         </nav>
         <nav class="navigation user">
             @if(!Auth::user())
@@ -18,7 +18,7 @@
             @if(Auth::user())
 
             @switch(Auth::user()->name)
-            @case('Admin')
+            @case('Админ')
             <a href="{{route('admin')}}" class="navigation__link link">Админ</a>
             <a href="{{route('admin-messages')}}" class="navigation__link link">Сообщения пользователей</a>
             @break
@@ -48,3 +48,22 @@
         <div :class="{burgerbar_bottom: visible}" class="burger-bar" id="burger-bottom"></div>
     </button>
 </div>
+
+<div class="upp-button">^</div>
+
+<script defer>
+    $(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > 400) {
+    $('.upp-button').addClass('upp-button-visible');
+  } else {
+    $('.upp-button').removeClass('upp-button-visible');
+  }
+});
+
+$(".upp-button").click(function () {
+  $("html, body").animate({
+    scrollTop: 0
+  }, 500)
+})
+</script>

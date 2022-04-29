@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,10 @@
     <link rel="shortcut icon" href="{{URL::asset('img/favicon.svg')}}" type="image/svg">
     <title>Snip HUB</title>
   
+    
+    <!-- Бибилиотека jQuery -->
+    <script src="{{URL::asset('js/jquery.js')}}"></script>
+
     <script defer src="{{URL::asset('js/vue.js')}}"></script>
     <script defer src="{{URL::asset('js/script.js')}}"></script>
 </head>
@@ -22,6 +26,8 @@
      
     @include('../partials/header')
 
+    @include('../partials/messages')
+    
     <main class="content">
         @yield('content')
     </main>

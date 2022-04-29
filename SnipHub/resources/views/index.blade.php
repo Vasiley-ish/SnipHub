@@ -5,26 +5,6 @@
 @endsection
 
 @section('content')
-<div class="advantages" id="about">
-    <div class="card card--advantage index">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle advantage__title">Преимущество 1</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
-    </div>
-    <div class="card card--advantage index">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle advantage__title">Преимущество 2</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
-    </div>
-    <div class="card card--advantage">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle index advantage__title">Преимущество 2</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
-    </div>
-</div>
 
 <h1 class="title title--main" id="servises">Наши услуги</h1>
 
@@ -92,6 +72,28 @@
         сложность от пошива и ремонта одежды до изготовления чехлов и постельного белья!</p>
     <a class="button" href="{{route('dashboard')}}">Оформить заказ</a>
 </div>
+
+<!-- <h1 class="title title--main" id="otz">Отзывы</h1>
+<div class="advantages" id="about">
+    <div class="card card--advantage index">
+        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
+        <p class="title subtitle advantage__title">Преимущество 1</p>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+            optio atque ameandae!</p>
+    </div>
+    <div class="card card--advantage index">
+        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
+        <p class="title subtitle advantage__title">Преимущество 2</p>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+            optio atque ameandae!</p>
+    </div>
+    <div class="card card--advantage">
+        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
+        <p class="title subtitle index advantage__title">Преимущество 2</p>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
+            optio atque ameandae!</p>
+    </div>
+</div> -->
 
 <h1 class="title title--main">Каталог</h1>
 <span class="title main--subtitle">Нажмите на ссылку и просматривайте наши цены</span>

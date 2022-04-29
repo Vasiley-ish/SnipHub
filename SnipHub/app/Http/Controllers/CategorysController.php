@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\MessageRequest;
 use App\Http\Requests\CategoryRequest;
 
 use App\Models\Categorys;
 use App\Models\Subcategorys;
-use App\Models\Messages;
 
 class CategorysController extends Controller
 {
@@ -38,48 +36,26 @@ class CategorysController extends Controller
         return redirect()->route('admin');
     }
 
-
-    public  function createMessage(CategoryRequest $req){
+    public  function showIndex(){
      
-        $form = new Messages();
-        $form->author = $req->user()->name;
-        $form->telephone = $req->input('phone');
-        $form->servise = $req->input('category');
-        $form->how_to_contact = $req->input('contact');
-
-        ($req->input('comment') != null) 
-        ? $form->message = $req->input('comment')
-        : $form->message = 'Клиент не оставил сообщение';
-        
-        $form->read = '0';
-        
-        $form->save();
-
-        return redirect()->route('dashboard');
+        $cats = new Categorys();
+        $subcats = new Subcategorys();
+        return view('index', ['cats' => $cats->orderBy('created_at', 'asc')->get()], ['subcats' => $subcats->orderBy('created_at', 'asc')->get()]);
     }
 
-    public  function deleteMessage($id, CategoryRequest $req){
-        
-        $current_user = $req->user()->name;
-
-        Messages::find($id)->delete();
-
-        if ($current_user == 'Admin') {return redirect()->route('admin-messages');}
-        
-        return redirect()->route('dashboard');
-        
+    public  function showPrice(){
+     
+        $cats = new Categorys();
+        $subcats = new Subcategorys();
+        return view('price', ['cats' => $cats->orderBy('created_at', 'asc')->get()], ['subcats' => $subcats->orderBy('created_at', 'asc')->get()]);
     }
 
-    public  function markAsSeen ($id, CategoryRequest $req){
-      
-        $form =  Messages::find($id);
-
-        $form->read = '1';
-        
-        $form->save();
-        
-        return redirect()->route('admin-messages');
-        
+    public  function showAdmin(){
+     
+        $cats = new Categorys();
+        $subcats = new Subcategorys();
+        return view('admin', ['cats' => $cats->orderBy('created_at', 'asc')->get()], ['subcats' => $subcats->orderBy('created_at', 'asc')->get()]);
     }
+
 
 }

@@ -34,9 +34,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:^[?!,.а-яА-ЯёЁрР\s]+$^'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            'name.regex' => 'Имя должно содержать только Кирилические символы',
+            'email.unique' => 'Эта электронная почта уже занята',
+            'password.confirmed' => 'Подтверждение пароля не совпадает',
+            'password.min' => 'Пароль должен содержать минимум 8 символов'
         ]);
 
         $user = User::create([
