@@ -2,23 +2,7 @@
 
 @section('content')
 
-    <?php
-        // данные для вывода читабельных дней недели и месяцев
-         // Вывод месяца на русском
-         $monthes = array(
-             1 => 'Января', 2 => 'Февраля', 3 => 'Марта', 4 => 'Апреля',
-             5 => 'Мая', 6 => 'Июня', 7 => 'Июля', 8 => 'Августа',
-             9 => 'Сентября', 10 => 'Октября', 11 => 'Ноября', 12 => 'Декабря'
-         );
-         // для вывода используй $monthes[(date('n', strtotime($date)))] 
 
-         // Вывод дня недели
-         $days = array(
-             'Вс', 'Пн', 'Вт', 'Ср',
-             'Чт', 'Пт', 'Сб'
-         );
-         // для вывода используй $days[(date('w', strtotime($date)))]
-    ?>
 
 <h1 class="title title--main">Личный кабинет</h1>
 <span class="title main--subtitle">{{Auth::user()->name}}</span>
@@ -29,6 +13,7 @@
         <div class="tab tab--selected js-tab-trigger" data-tab="1">Мои заявки</div>
         <div class="tab js-tab-trigger" data-tab="2">Заказать звонок</div>
         <div class="tab js-tab-trigger" data-tab="3">Записаться на консультацию</div>
+        <div class="tab js-tab-trigger" data-tab="4">Написать отзыв</div>
     </div>
 
 
@@ -37,7 +22,7 @@
         <div class="page page--active js-tab-content" data-tab="1">
             <p class="title transparent no-requisition_page no-requisition">У вас нет активных заявок</p>
 
-            @foreach($appointments as $appointment)
+            @foreach($user_appointment as $appointment)
             <div class="card card--appointment">
                 
                 <p class="card__datetime"> <strong>{{$days[(date('w', strtotime($appointment->day)))]}}</strong>, {{date("d", strtotime($appointment->day))}} {{$monthes[(date('n', strtotime($appointment->day)))] }} в <strong>{{$appointment->time}}</strong></p>
@@ -128,6 +113,26 @@
             <button class="button appointment__button" disabled >Записаться на консультацию</button>
         </form> 
     </div>
+
+    <div class="page js-tab-content" data-tab="4">
+          
+        <p class="text text--oneliner">Воспользовались нашими услугами? Оцените нашу работу и оставте отзыв!</p>
+
+        <form class="form__comment" action="{{route('makeComment')}}" method="post"  enctype="multipart/form-data" >
+            @csrf
+            <div class="file-previw">
+                <input type="file" name="photo" id="photo" required>
+                <img class="image-preview" src="" alt="Превью Изображения">
+            </div>
+            <div class="otxiv-form-container">
+                <textarea class="input" name="comment" id="comment" cols="30" rows="6" placeholder="Напишите свой отзыв" required minlength="8" maxlength="150">{{ old('comment') }}</textarea>
+                <button class="button" type="submit">Опубликовать</button>
+            </div>
+
+        </form> 
+
+    </div>
+
 </div>
 
 </div>
@@ -148,5 +153,33 @@
     let bookedAppointments = <?php echo json_encode($appointments); ?>; // масив занятых номерков
 </script>
 <script src="{{URL::asset('js/appointmentCalendar.js')}}"></script>
+
+<!-- Предпросмотр изображения -->
+<script defer>
+    const inpFile = document.getElementById('photo')
+    const imagePreview = document.querySelector('.image-preview')
+    
+    inpFile.addEventListener("change", function(){
+        const image = this.files[0]
+
+        if(image){
+            reader = new FileReader()
+            reader.addEventListener("load", function(){
+                imagePreview.setAttribute('src', this.result)
+            })
+            reader.readAsDataURL(image)
+
+            imagePreview.style.display = 'block'
+
+            return
+        } 
+
+        imagePreview.style.display = 'none'
+        imagePreview.setAttribute('src', "")
+        
+    })
+
+    // $('.image-preview')
+</script>
 
 @endsection

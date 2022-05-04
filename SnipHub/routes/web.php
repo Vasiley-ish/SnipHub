@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth']], function () {
         [UserController::class, 'deleteAppointment']
     )->name('deleteAppointment');
 
+    Route::post('/dashboard/make-comment',
+    [UserController::class, 'makeComment']
+    )->name('makeComment');
+
 });
 
 

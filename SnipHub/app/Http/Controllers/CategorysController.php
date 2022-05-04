@@ -8,6 +8,7 @@ use App\Http\Requests\CategoryRequest;
 
 use App\Models\Categorys;
 use App\Models\Subcategorys;
+use App\Models\Comments;
 
 class CategorysController extends Controller
 {
@@ -37,10 +38,17 @@ class CategorysController extends Controller
     }
 
     public  function showIndex(){
-     
+        
+        $comments = new Comments();
         $cats = new Categorys();
         $subcats = new Subcategorys();
-        return view('index', ['cats' => $cats->orderBy('created_at', 'asc')->get()], ['subcats' => $subcats->orderBy('created_at', 'asc')->get()]);
+
+        return view('index')
+        ->with(['cats' => $cats->orderBy('created_at', 'asc')->get()])
+        ->with(['subcats' => $subcats->orderBy('created_at', 'asc')->get()])
+        ->with(['comments' => $comments->take(3)->orderBy('created_at', 'desc')->get()])
+        ; 
+
     }
 
     public  function showPrice(){

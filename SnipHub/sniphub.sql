@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 29 2022 г., 17:18
+-- Время создания: Май 04 2022 г., 17:34
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.3.33
 
@@ -42,7 +42,7 @@ CREATE TABLE `appointment_models` (
 --
 
 INSERT INTO `appointment_models` (`id`, `email`, `user_name`, `day`, `time`, `created_at`, `updated_at`) VALUES
-(44, 'temofen@mail.ru', 'Горох', '2022-05-05', '11:30', '2022-04-29 10:55:09', '2022-04-29 10:55:09');
+(45, 'temofen@mail.ru', 'Горох', '2022-05-05', '11:30', '2022-05-04 09:46:07', '2022-05-04 09:46:07');
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,33 @@ INSERT INTO `categorys` (`id`, `category_name`, `created_at`, `updated_at`) VALU
 (1, 'Пошив одежды', '2022-04-29 11:15:06', '2022-04-29 11:15:06'),
 (2, 'Ремонт Одежды', '2022-04-29 11:15:08', '2022-04-29 11:15:08'),
 (3, 'Текстильные изделия', '2022-04-29 11:15:11', '2022-04-29 11:15:11');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `author`, `comment`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 'Горох', 'kyukuykuykyu', 'ed_images/CrfwRmaL2sywe1M0X7dEO6EMqwJgU9eCf2w7odgX.jpg', '2022-05-04 10:45:28', '2022-05-04 10:45:28'),
+(2, 'Горох', 'kkuikiu iukuikui ukiuikiu', 'ed_images/JxtM3wwlV1Eags1dewm5V1MwlPEfM5n46mXZoGMd.png', '2022-05-04 11:17:59', '2022-05-04 11:17:59'),
+(3, 'Горох', 'kuykyuk yuk uy kuyk yukyk yu kyuk', 'ed_images/1sstVtHDTOMQ94JZZiVCIKANQ4ExUzYCzJt6mFY5.png', '2022-05-04 11:18:14', '2022-05-04 11:18:14'),
+(4, 'Горох', 'uyk uy kyu kyu', 'ed_images/fSShlHN0CZYy6Dl16cUGTZabpA5azNnt5XWWPngM.jpg', '2022-05-04 11:18:28', '2022-05-04 11:18:28'),
+(5, 'Горох', 'iukuikuik', '/7PYUQ3DU8K6VPMTzk04fmzm9jH9nCkMvMm85Zcwe.png', '2022-05-04 11:24:34', '2022-05-04 11:24:34'),
+(6, 'Горох', 'Очень хорошее отелье, пришили все рукова качественно 👍', '/BwfWu8r2xlVuKwl47Bpyjrf3rS0BKyGCMO7sAmgY.jpg', '2022-05-04 11:31:03', '2022-05-04 11:31:03');
 
 -- --------------------------------------------------------
 
@@ -108,7 +135,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2022_04_09_093709_create_categorys_table', 2),
 (33, '2022_04_09_093716_create_subcategorys_table', 2),
 (34, '2022_04_27_125051_create_appointment_models_table', 2),
-(35, '2022_04_27_125254_create_order_call_models_table', 2);
+(35, '2022_04_27_125254_create_order_call_models_table', 2),
+(36, '2022_05_04_133332_create_comments_table', 3);
 
 -- --------------------------------------------------------
 
@@ -161,7 +189,9 @@ CREATE TABLE `order_call_models` (
 --
 
 INSERT INTO `order_call_models` (`id`, `user`, `phone`, `created_at`, `updated_at`) VALUES
-(31, 'temofen@mail.ru', '+5 (555) 555-55-55', '2022-04-29 11:02:26', '2022-04-29 11:02:26');
+(31, 'temofen@mail.ru', '+5 (555) 555-55-55', '2022-04-29 11:02:26', '2022-04-29 11:02:26'),
+(32, 'admin@admin.com', '+8 (888) 888-88-88', '2022-04-29 11:33:35', '2022-04-29 11:33:35'),
+(33, 'temofen@mail.ru', '+5 (555) 555-55-55', '2022-05-04 09:46:12', '2022-05-04 09:46:12');
 
 -- --------------------------------------------------------
 
@@ -285,7 +315,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Горох', 'temofen@mail.ru', NULL, '$2y$10$RsmrlGMjWY6xnRIeXlVgdOJf2cEi.5UTxLSquFr5fr39JSyhLQIPe', NULL, '2022-04-27 10:39:19', '2022-04-27 10:39:19'),
+(1, 'Горох', 'temofen@mail.ru', NULL, '$2y$10$RsmrlGMjWY6xnRIeXlVgdOJf2cEi.5UTxLSquFr5fr39JSyhLQIPe', 'fhxbUwO3zgqVrRyuVGGjOproc5eznXsOBWjQPnNKKCjUg9bfr3W2qgeRbWrX', '2022-04-27 10:39:19', '2022-04-27 10:39:19'),
 (2, 'Админ', 'admin@admin.com', NULL, '$2y$10$HgnNszMFNqBsVDh6w000xemmKlkr0bqP9f3FXD4L7MUvDRL3LW0bu', NULL, '2022-04-29 11:11:22', '2022-04-29 11:11:22');
 
 --
@@ -305,6 +335,13 @@ ALTER TABLE `appointment_models`
 ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_name` (`category_name`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author` (`author`);
 
 --
 -- Индексы таблицы `failed_jobs`
@@ -398,13 +435,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `appointment_models`
 --
 ALTER TABLE `appointment_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT для таблицы `categorys`
 --
 ALTER TABLE `categorys`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -416,13 +459,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT для таблицы `order_call_models`
 --
 ALTER TABLE `order_call_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT для таблицы `permissions`
@@ -463,6 +506,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `appointment_models`
   ADD CONSTRAINT `appointment_models_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
+
+--
+-- Ограничения внешнего ключа таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`name`);
 
 --
 -- Ограничения внешнего ключа таблицы `model_has_permissions`

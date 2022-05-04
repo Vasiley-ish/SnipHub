@@ -8,7 +8,7 @@
             <a href="/" class="navigation__link link">Главная</a>
             <a href="{{route('price')}}" class="navigation__link link">Цены</a>
             <a href="/#servises" class="navigation__link link">Наши Услуги</a>
-            <!-- <a href="/#otz" class="navigation__link link">Отзывы</a> -->
+            <a href="/#otz" class="navigation__link link">Отзывы</a>
         </nav>
         <nav class="navigation user">
             @if(!Auth::user())

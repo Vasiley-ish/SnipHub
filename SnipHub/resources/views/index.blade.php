@@ -73,27 +73,25 @@
     <a class="button" href="{{route('dashboard')}}">Оформить заказ</a>
 </div>
 
-<!-- <h1 class="title title--main" id="otz">Отзывы</h1>
+<h1 class="title title--main" id="otz">Отзывы</h1>
 <div class="advantages" id="about">
+
+    @foreach($comments as $comment)
+
     <div class="card card--advantage index">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle advantage__title">Преимущество 1</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
+        <div class="otziv-image" style="background-image:url('{{  URL::to('storage/images'.$comment->photo)  }}')">
+            <p class="text text--otziv">
+                {{ $comment->comment }}
+                <br>
+                <small class="otziv-subtext">  {{ $comment->updated_at }}</small>
+            </p>
+        </div>
+        <p class="text text--client">{{$comment->author}}</p>
     </div>
-    <div class="card card--advantage index">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle advantage__title">Преимущество 2</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
-    </div>
-    <div class="card card--advantage">
-        <img src="{{URL::asset('img/best-icon.png')}}" alt="w">
-        <p class="title subtitle index advantage__title">Преимущество 2</p>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eligendi consequuntur
-            optio atque ameandae!</p>
-    </div>
-</div> -->
+
+    @endforeach
+
+</div>
 
 <h1 class="title title--main">Каталог</h1>
 <span class="title main--subtitle">Нажмите на ссылку и просматривайте наши цены</span>
