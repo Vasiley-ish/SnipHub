@@ -6,6 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CommentRequest extends FormRequest
 {
+    
+    //redirects back to correct tab
+    protected $redirect = '/dashboard#tab4';
+
     /**
      * Determine if the user is authorized to make this request.
      *

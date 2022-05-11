@@ -20,7 +20,6 @@
             @switch(Auth::user()->name)
             @case('Админ')
             <a href="{{route('admin')}}" class="navigation__link link">Админ</a>
-            <a href="{{route('admin-messages')}}" class="navigation__link link">Сообщения пользователей</a>
             @break
             
             @default

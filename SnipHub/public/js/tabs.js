@@ -1,19 +1,24 @@
-var jsTriggers = document.querySelectorAll('.js-tab-trigger');
-   
-jsTriggers.forEach(function (item, i) {
-   item.addEventListener('click', function () {
-      var tabName = this.dataset.tab,
-             tabContent = document.querySelector('.js-tab-content[data-tab="' + tabName + '"]');
+$(document).ready(function() {
+   const hash = location.hash;
+   activateTab(hash) 
+});
 
-             document.querySelectorAll('.js-tab-content.page--active').forEach(function (item, i) {
-                item.classList.remove('page--active');
-               });
-               
-         document.querySelectorAll('.js-tab-trigger.tab--selected').forEach(function (item, i) {
-            item.classList.remove('tab--selected');
-         });
-         
-         tabContent.classList.add('page--active');
-         this.classList.add('tab--selected');
-     });
- })
+window.addEventListener('hashchange', function(evt) {
+   const hash = location.hash;
+     activateTab(hash) 
+ });
+ 
+ function activateTab(hash) {
+ 
+     const currentTab = $(`.js-tab-trigger[href="${hash}"]`)
+ 
+     $(".js-page-title").html(currentTab.html()) 
+ 
+     $(".js-tab-trigger").removeClass("tab--selected")
+     currentTab.addClass("tab--selected")
+ 
+     
+     $('.js-tab-content').removeClass("page--active")
+     $(`.js-tab-content[data-tab="${hash}"]`).addClass("page--active")
+ 
+ }

@@ -29,9 +29,13 @@ class UserController extends Controller
         return redirect()->route('dashboard')->with('success', 'консультация была успешно назначена');
     }
 
-    public  function deleteAppointment($id){
+    public  function deleteAppointment(Request $req, $id){
 
         AppointmentModel::find($id)->delete();
+
+        if($req->user()->email == 'admin@admin.com'){
+            return redirect()->route('admin', ['#tab1']);
+        }
 
         return redirect()->route('dashboard');
 
@@ -62,7 +66,7 @@ class UserController extends Controller
 
         $form->save();
 
-        return redirect()->route('dashboard')->with('success', 'Ваш номер телефона успешно отправлен! В скором времени ожидайте звонок');
+        return redirect()->route('dashboard',  [ '#tab2' ])->with('success', 'Ваш номер телефона успешно отправлен! В скором времени ожидайте звонок');
     }
 
     public  function showDashboard(Request $req){
@@ -86,7 +90,7 @@ class UserController extends Controller
         $appointments = new AppointmentModel();
         $current_user = $req->user()->name;
 
-        return view('dashboard')
+        return view('dashboard', [ '#tab1' ])
         ->with(['appointments' => $appointments->orderBy('day', 'asc')->orderBy('time', 'asc')->get()])
         ->with(['user_appointment' => $appointments->where('user_name', $current_user)->get()])
         ->with(['monthes' => $monthes])

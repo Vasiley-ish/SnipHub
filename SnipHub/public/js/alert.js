@@ -5,8 +5,8 @@ $('.show_confirm').on('click', function(event) {
 
     
     swal({
-            title: `Подтвердите отмену`,
-            text: "После отмены выбранное Вами время больше не будет забронированно",
+            title: `Подтвердите удаление`,
+            text: "Выбранная заявка на консультацию будет удалена!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

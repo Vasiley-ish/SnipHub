@@ -38,4 +38,11 @@
 
 </body>
 
+<!-- Табы -->
+<script src="{{URL::asset('js/tabs.js')}}"></script>
+
+<!-- Модальное окно с подтверждением действия -->
+<script src="{{URL::asset('js/sweetAlert.js')}}"></script>
+<script src="{{URL::asset('js/alert.js')}}"> </script>
+
 </html>

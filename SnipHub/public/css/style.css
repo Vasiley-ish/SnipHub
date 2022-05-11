@@ -758,8 +758,8 @@
     .form-line {
         display: flex;
         gap: 8px;
-        align-items: center;
         flex-wrap: wrap;
+        padding: 2em;
     }
     
     .form--category {
@@ -1176,6 +1176,9 @@
         cursor: pointer;
         max-width: 33vw;
         text-align: center;
+
+        color: #333;
+        text-decoration: none;
     }
     
     .tab--selected {
@@ -1407,3 +1410,14 @@
         gap: 24px;
         flex-direction: column;
     }
+
+.outdated{
+    opacity: .5;
+    border: #A33131 2px solid;
+    box-shadow: #A33131 0px 0px 10px;
+}
+
+.today{
+    box-shadow: #5BCFFA 0px 0px 10px;
+    border: #5BCFFA 2px solid;
+}

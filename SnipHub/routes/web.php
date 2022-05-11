@@ -69,9 +69,9 @@ Route::group(['middleware' => ['role:admin']], function () {
         [CategorysController::class, 'createSubcategory']
     )->name('createSubcategory');
 
-    Route::post('/seen/{id}',
-        [CategorysController::class, 'markAsSeen']
-    )->name('seen');
+    Route::post('admin/deleteOutdatedAppointments',
+        [CategorysController::class, 'deleteOutdatedAppointments']
+    )->name('deleteOutdatedAppointments');
 
 });
 

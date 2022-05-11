@@ -10,16 +10,16 @@
 <div class="tabs">
 
     <div class="tabs-header">
-        <div class="tab tab--selected js-tab-trigger" data-tab="1">Мои заявки</div>
-        <div class="tab js-tab-trigger" data-tab="2">Заказать звонок</div>
-        <div class="tab js-tab-trigger" data-tab="3">Записаться на консультацию</div>
-        <div class="tab js-tab-trigger" data-tab="4">Написать отзыв</div>
+        <a href="#tab1" class="tab js-tab-trigger" data-tab="1">Мои заявки</a>
+        <a href="#tab2" class="tab js-tab-trigger" data-tab="2">Заказать звонок</a>
+        <a href="#tab3" class="tab js-tab-trigger" data-tab="3">Записаться на консультацию</a>
+        <a href="#tab4" class="tab js-tab-trigger" data-tab="4">Написать отзыв</a>
     </div>
 
 
     <div class="tabs-content">
 
-        <div class="page page--active js-tab-content" data-tab="1">
+        <div class="page js-tab-content" data-tab="#tab1">
             <p class="title transparent no-requisition_page no-requisition">У вас нет активных заявок</p>
 
             @foreach($user_appointment as $appointment)
@@ -38,7 +38,7 @@
 
         </div>
 
-        <div class="page js-tab-content" data-tab="2">
+        <div class="page js-tab-content" data-tab="#tab2">
             <form class="form" action="{{route('orderCall')}}" method="post" autocomplete="off">
                 @csrf
 
@@ -51,7 +51,7 @@
             </form>
         </div>
 
-        <div class="page js-tab-content " data-tab="3" id="appointmentApp">
+        <div class="page js-tab-content " data-tab="#tab3" id="appointmentApp">
             <p class="text text--oneliner">Назначте консультацию на удобное Вам время и мы будем Вас ждать!</p>
 
             <div class="grid">
@@ -114,7 +114,7 @@
         </form> 
     </div>
 
-    <div class="page js-tab-content" data-tab="4">
+    <div class="page js-tab-content" data-tab="#tab4">
           
         <p class="text text--oneliner">Воспользовались нашими услугами? Оцените нашу работу и оставте отзыв!</p>
 
@@ -138,13 +138,6 @@
 </div>
 
 
-<!-- Модальное окно с подтверждением действия -->
-<script src="{{URL::asset('js/sweetAlert.js')}}"></script>
-<script src="{{URL::asset('js/alert.js')}}"> </script>
-
-<!-- Табы -->
-<script src="{{URL::asset('js/tabs.js')}}"></script>
-
 <!-- Форматирование номера телефона -->
 <script src="{{URL::asset('js/formatPhone.js')}}"></script>
 
@@ -155,31 +148,6 @@
 <script src="{{URL::asset('js/appointmentCalendar.js')}}"></script>
 
 <!-- Предпросмотр изображения -->
-<script defer>
-    const inpFile = document.getElementById('photo')
-    const imagePreview = document.querySelector('.image-preview')
-    
-    inpFile.addEventListener("change", function(){
-        const image = this.files[0]
-
-        if(image){
-            reader = new FileReader()
-            reader.addEventListener("load", function(){
-                imagePreview.setAttribute('src', this.result)
-            })
-            reader.readAsDataURL(image)
-
-            imagePreview.style.display = 'block'
-
-            return
-        } 
-
-        imagePreview.style.display = 'none'
-        imagePreview.setAttribute('src', "")
-        
-    })
-
-    // $('.image-preview')
-</script>
+<script defer src="{{URL::asset('js/previewImage.js')}}"></script>
 
 @endsection

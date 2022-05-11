@@ -9,6 +9,8 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Categorys;
 use App\Models\Subcategorys;
 use App\Models\Comments;
+use App\Models\AppointmentModel;
+use App\Models\OrderCallModel;
 
 class CategorysController extends Controller
 {
@@ -22,7 +24,7 @@ class CategorysController extends Controller
 
         $form->save();
 
-        return redirect()->route('admin');
+        return redirect()->route('admin', [ '#tab3' ]);
     }
 
 
@@ -34,7 +36,7 @@ class CategorysController extends Controller
 
         $form->save();
 
-        return redirect()->route('admin');
+        return redirect()->route('admin', [ '#tab3' ]);
     }
 
     public  function showIndex(){
@@ -59,11 +61,46 @@ class CategorysController extends Controller
     }
 
     public  function showAdmin(){
+
+                // данные для вывода читабельных дней недели и месяцев
+        // Вывод месяца на русском
+        $monthes = array(
+            1 => 'Января', 2 => 'Февраля', 3 => 'Марта', 4 => 'Апреля',
+            5 => 'Мая', 6 => 'Июня', 7 => 'Июля', 8 => 'Августа',
+            9 => 'Сентября', 10 => 'Октября', 11 => 'Ноября', 12 => 'Декабря'
+        );
+        // для вывода используй $monthes[(date('n', strtotime($date)))] 
+
+        // Вывод дня недели
+        $days = array(
+            'Вс', 'Пн', 'Вт', 'Ср',
+            'Чт', 'Пт', 'Сб'
+        );
+        // для вывода используй $days[(date('w', strtotime($date)))]
      
         $cats = new Categorys();
         $subcats = new Subcategorys();
-        return view('admin', ['cats' => $cats->orderBy('created_at', 'asc')->get()], ['subcats' => $subcats->orderBy('created_at', 'asc')->get()]);
+        $calls = new OrderCallModel();
+        $appointments = new AppointmentModel();
+
+        return view('admin',  [ '#tab1' ])
+        ->with(['cats' => $cats->orderBy('created_at', 'asc')->get()])
+        ->with(['subcats' => $subcats->orderBy('created_at', 'asc')->get()])
+        ->with(['appointments' => $appointments->orderBy('day', 'asc')->orderBy('time', 'asc')->get()])
+        ->with(['calls' => $calls->orderBy('created_at', 'asc')->get()])
+        
+        ->with(['monthes' => $monthes])
+        ->with(['days' => $days])
+        ;
     }
 
+    public  function deleteOutdatedAppointments(){
+     
+        $today = date('Y-m-d');
+
+        AppointmentModel::where('day', '<', $today)->delete();
+        
+        return redirect()->route('admin', [ '#tab1' ]);
+    }
 
 }
